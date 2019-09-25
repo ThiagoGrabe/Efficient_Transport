@@ -6,8 +6,6 @@ class Container:
         self.rows = None
         self.columns = None
         self.key_values = dict()
-        self.min = 1
-        self.nm = 9
 
         with open(str(self.entry)) as file:
             self.load = [[int(num) for num in line.split()] for line in file]
@@ -15,11 +13,6 @@ class Container:
             self.rows = self.load[0][0]
             self.columns = self.load[0][1]
             self.weight = self.load[1]
-            self.board_len = self.rows * self.columns
-
-            # Check if the container has a valid size (max=9)
-            if not self.min <= (self.rows * self.columns) <= self.nm:
-                raise Exception('Entry not valid! Maximum items = 9.')
 
             # Initial and final configuration of the container
             self.initial_config = self.load[2:(2 + self.rows)]
@@ -36,14 +29,16 @@ class Container:
                 self.key_values[num] = self.weight[num - 1]
 
     def set_index(self, current_state):
-        self.result = list()
-        self.unique_result = list()
+        self.result = []
         l1 = current_state
         l2 = self.final_config
 
         for row in range(0, self.rows):
             for col in range(0, self.columns):
-                self.result.append([row, col, self.key_values[l1[row][col]]])
+                # self.result.append([row, col, self.key_values[l1[row][col]]])
+                if l1[row][col] != l2[row][col]:
+                    self.result.append([row, col, self.key_values[l1[row][col]]])
+        # self.result.sort(key=lambda x: x[2])
         try:
             return self.result
         except:

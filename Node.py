@@ -7,6 +7,7 @@ class Node:
         self.cost = cost
         self.edge_cost = edge_cost
         self.parent = parent
+        self.dinheiro = float('inf')
 
         self.flatten = lambda l: [item for sublist in l for item in sublist]
         self.state = self.flatten(self.matrix_state)
