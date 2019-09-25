@@ -67,11 +67,11 @@ def expand(node, indices, cost_now, edge_cost, visited, explored):
                     if a > node.cost + movement[1]:
                         new_node = visited[map_]
                         new_node.cost = node.cost + movement[1]
-                        cost_now[new_node.map] = new_node.cost
-                        edge_cost[new_node.map] = new_node.edge_cost
+                        cost_now[map_] = new_node.cost
+                        edge_cost[map_] = new_node.edge_cost
                         new_node.parent = node
                 else:
-                    new_node = (Node(movement[0], node.cost, movement[1], node))
+                    new_node = (Node(movement[0], node.cost+movement[1], movement[1], node))
                 #
                 #
                 #
@@ -178,14 +178,14 @@ def record_cost(node, cost_dict=None):
 def main():
     init = time.time()
     global world
-    # file = sys.argv[1]
-    file = str('entrada_1')
+    file = sys.argv[1]
+    # file = str('entrada_4')
     world = Container(str(file))
     node, cost_now, edge_cost = dijkstra(world)
     # final = time.time()
     # node = djk((world))
-    # cost = node.cost + node.edge_cost
-    cost = record_cost(node, edge_cost)
+    cost = node.cost
+    # cost = record_cost(node, edge_cost)
     final = time.time()
     # print(len(cost_now))
     print(cost, 'time: ' + str(round(final - init, 4)) + ' s')
