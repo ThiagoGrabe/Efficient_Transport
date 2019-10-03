@@ -35,9 +35,5 @@ class Container:
 
         for row in range(0, self.rows):
             for col in range(0, self.columns):
-                self.result.append([row, col, self.key_values[l1[row][col]]])
-                # self.result.append([row, col])
-        # return self.result
-        #         if l1[row][col] != l2[row][col]:
-        #             self.result.append([row, col, self.key_values[l1[row][col]]])
+                self.result.append([row, col])
         return self.result
