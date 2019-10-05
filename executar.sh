@@ -1,2 +1,2 @@
 #!/bin/bash
-python3 ShortPath.py $1 $2
+pypy ShortPath.py $1 $2

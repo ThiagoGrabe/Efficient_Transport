@@ -1,7 +1,7 @@
 from Enviroment import Container
 from Node import Node
 import sys
-import queue
+import Queue
 
 world = None
 init_node = None
@@ -15,7 +15,7 @@ def dijkstra(world):
 
     init_node = Node(world.initial_config, 0, 0, None)
     idx = world.result
-    frontier = queue.PriorityQueue()
+    frontier = Queue.PriorityQueue()
 
     frontier.put((init_node.cost, init_node))
     cost_now[init_node.map] = 0
