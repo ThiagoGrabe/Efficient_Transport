@@ -13,7 +13,7 @@ Where the `x` and `y` are the positions to be changed and the function `W(x), W(
 
 ## Input
 
-The input consist in 4 main parts.
+The input consist in 3 main parts.
 
 1. First line is the container configuration - lenght and height;
 2. Second line is the weight value for each postion. The second line is a list of where each position of the list mean the respective weight of the container;
